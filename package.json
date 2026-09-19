@@ -1,5 +1,10 @@
 {
+  "name": "simple-web-fetcher-mcp",
+  "version": "1.0.0",
   "type": "module",
+  "bin": {
+    "simple-web-fetcher": "./build/index.js"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "dotenv": "^18.0.1"
@@ -10,6 +15,7 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "build": "tsc"
   }
 }
