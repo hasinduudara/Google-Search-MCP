@@ -4,11 +4,7 @@
 
 <br/>
 
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![MCP](https://img.shields.io/badge/Protocol-MCP-8A2BE2?style=for-the-badge&logo=protocolsdotio&logoColor=white)](https://modelcontextprotocol.io/)
-[![Google Custom Search](https://img.shields.io/badge/Google-Custom%20Search%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://programmablesearchengine.google.com/)
-[![License](https://img.shields.io/badge/License-Unspecified-lightgrey?style=for-the-badge)]()
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![MCP](https://img.shields.io/badge/Protocol-MCP-8A2BE2?style=for-the-badge&logo=protocolsdotio&logoColor=white)](https://modelcontextprotocol.io/) [![Google Custom Search](https://img.shields.io/badge/Google-Custom%20Search%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://programmablesearchengine.google.com/) [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br/>
 
@@ -117,7 +113,7 @@ After building the project, register the server with an MCP-compatible client us
   "mcpServers": {
     "google-search": {
       "command": "node",
-      "args": ["D:/My Learning Projects/Google-Search-MCP/build/index.js"],
+      "args": ["/absolute/path/to/Google-Search-MCP/build/index.js"],
       "env": {
         "GOOGLE_API_KEY": "your_google_api_key",
         "SEARCH_ENGINE_ID": "your_search_engine_id"
@@ -134,7 +130,7 @@ Or keep credentials in the project's `.env` and launch from the project director
   "mcpServers": {
     "google-search": {
       "command": "node",
-      "args": ["D:/My Learning Projects/Google-Search-MCP/build/index.js"]
+      "args": ["/absolute/path/to/Google-Search-MCP/build/index.js"]
     }
   }
 }
@@ -193,7 +189,7 @@ npx @modelcontextprotocol/inspector node build/index.js
 
 ## 📄 License
 
-No license has been specified for this project yet.
+ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
