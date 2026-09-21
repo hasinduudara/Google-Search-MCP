@@ -12,6 +12,10 @@
 
 <br/>
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/hasinduudara/google-search-mcp.git)
+
+<br/>
+
 ### 🔍 An MCP server that lets any MCP-compatible AI client search the live web through Google's Custom Search JSON API — over stdio, plug-and-play.
 
 </div>
@@ -193,6 +197,12 @@ npx @modelcontextprotocol/inspector node build/index.js
 No license has been specified for this project yet.
 
 ---
+
+<br/>
+
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/hasinduudara/google-search-mcp.git)
+
+<br/>
 
 ## 👤 Author
 
