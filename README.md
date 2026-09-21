@@ -25,6 +25,8 @@
 - [🔧 Google Custom Search Setup](#-google-custom-search-setup)
 - [📦 Installation](#-installation)
 - [▶️ Run](#️-run)
+- [🐳 Run with Docker](#-run-with-docker)
+  - [Point your MCP client to Docker](#point-your-mcp-client-to-docker)
 - [🔌 MCP Client Configuration](#-mcp-client-configuration)
 - [🛠️ Available Tool](#️-available-tool)
   - [`search_google`](#search_google)
@@ -103,6 +105,53 @@ node build/index.js
 > ℹ️ The server logs status and errors to `stderr`, keeping `stdout` clean for MCP protocol messages.
 
 ---
+
+## 🐳 Run with Docker
+
+Prefer containers? You can build and run this server without installing Node.js locally.
+
+**Build the image:**
+
+```bash
+docker build -t google-search-mcp .
+```
+
+**Run it** (make sure your `.env` file is set up first — see [Installation](#-installation)):
+
+```bash
+docker run -i --rm --env-file .env google-search-mcp
+```
+
+> ⚠️ The `-i` flag is required — this is a stdio-based MCP server and needs an interactive stream to communicate with the client.
+
+**Or use Docker Compose:**
+
+```yaml
+services:
+  google-search-mcp:
+    build: .
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+```
+
+```bash
+docker compose up --build
+```
+
+### Point your MCP client to Docker
+
+```json
+{
+  "mcpServers": {
+    "google-search": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--env-file", ".env", "google-search-mcp"]
+    }
+  }
+}
+```
 
 ## 🔌 MCP Client Configuration
 
