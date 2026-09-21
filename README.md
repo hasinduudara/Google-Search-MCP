@@ -23,15 +23,18 @@
 - [✨ Overview](#-overview)
 - [⚙️ Requirements](#️-requirements)
 - [🔧 Google Custom Search Setup](#-google-custom-search-setup)
+- [⚠️ Rate Limits \& Quota](#️-rate-limits--quota)
 - [📦 Installation](#-installation)
 - [▶️ Run](#️-run)
 - [🐳 Run with Docker](#-run-with-docker)
   - [Point your MCP client to Docker](#point-your-mcp-client-to-docker)
 - [🔌 MCP Client Configuration](#-mcp-client-configuration)
+- [🧩 Using This Server in Your Own Project](#-using-this-server-in-your-own-project)
 - [🛠️ Available Tool](#️-available-tool)
   - [`search_google`](#search_google)
 - [🧪 Test with MCP Inspector](#-test-with-mcp-inspector)
 - [📁 Project Structure](#-project-structure)
+- [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 - [👤 Author](#-author)
 
@@ -67,6 +70,15 @@
 2. **Enable** the `Custom Search API` for that project
 3. **Generate** an API key
 4. **Create** a [Programmable Search Engine](https://programmablesearchengine.google.com/) and copy its **Search Engine ID**
+
+---
+
+## ⚠️ Rate Limits & Quota
+
+The Google Custom Search JSON API's **free tier allows 100 queries per day**. Once that limit is hit, the API returns a `429` error and `search_google` will respond with an error message instead of results.
+
+- Need more? You can enable billing on your Google Cloud project for up to 10,000 queries/day (paid, per-query pricing).
+- Check your current usage in the [Google Cloud Console](https://console.cloud.google.com/) under **APIs & Services → Custom Search API → Quotas**.
 
 ---
 
@@ -187,6 +199,23 @@ Or keep credentials in the project's `.env` and launch from the project director
 
 ---
 
+## 🧩 Using This Server in Your Own Project
+
+This server isn't tied to any single client — any MCP-compatible host can spawn it and call `search_google`. To use it elsewhere:
+
+1. **Clone and build** this repo (or pull the Docker image — see [Run with Docker](#-run-with-docker)).
+2. **Point your MCP client's config** at the built entry point (`build/index.js`) or the Docker command, using the same JSON shown in [MCP Client Configuration](#-mcp-client-configuration).
+3. **Supported clients** — any tool that speaks MCP over stdio works, including:
+   - Claude Desktop
+   - [Cursor](https://www.cursor.com/) (`.cursor/mcp.json`)
+   - [Cline](https://github.com/cline/cline) (VS Code extension settings)
+   - Custom agents built with the [MCP SDK](https://modelcontextprotocol.io/) directly
+4. **Calling it programmatically** — if you're building your own MCP client/agent in code, connect an MCP `Client` over `StdioClientTransport` pointed at `build/index.js`, then call the `search_google` tool like any other MCP tool. See the [MCP TypeScript SDK docs](https://modelcontextprotocol.io/) for client-side examples.
+
+> Each client has its own config file location and format for `mcpServers` — check that client's docs for exactly where to paste the JSON block.
+
+---
+
 ## 🛠️ Available Tool
 
 ### `search_google`
@@ -233,6 +262,21 @@ npx @modelcontextprotocol/inspector node build/index.js
 ├── .env              # Local environment config (not committed)
 └── README.md
 ```
+
+---
+
+## 🤝 Contributing
+
+Contributions, bug reports, and feature requests are welcome!
+
+- **Found a bug or have an idea?** [Open an issue](../../issues) describing it.
+- **Want to contribute code?**
+  1. Fork the repo
+  2. Create a branch (`git checkout -b feature/your-feature`)
+  3. Make your changes and test locally (`npm start` or `docker compose up --build`)
+  4. Commit and push, then open a Pull Request
+
+Please keep PRs focused — one feature or fix per PR makes review easier.
 
 ---
 
